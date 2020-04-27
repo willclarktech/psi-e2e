@@ -18,5 +18,6 @@ PYTHON_DIR="PyPSI"
 (
     echo "Setting up ${PYTHON_DIR}"
     cd "${SUBMODULES_DIR}/${PYTHON_DIR}"
+    pip install -r requirements.txt
     pip install .
 )
