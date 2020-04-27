@@ -1,0 +1,3 @@
+[submodule "submodules/psi.js"]
+	path = submodules/psi.js
+	url = https://github.com/OpenMined/psi.js.git
