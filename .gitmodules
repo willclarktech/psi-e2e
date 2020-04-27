@@ -1,3 +1,6 @@
 [submodule "submodules/psi.js"]
 	path = submodules/psi.js
 	url = https://github.com/OpenMined/psi.js.git
+[submodule "submodules/PyPSI"]
+	path = submodules/PyPSI
+	url = https://github.com/OpenMined/PyPSI.git
