@@ -1,0 +1,32 @@
+name: Py-JS Interoperability
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ opened, synchronize, reopened]
+
+jobs:
+  py-js-interop:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y libmpc-dev
+        python -m pip install --upgrade pip
+        ./scripts/update_submodules.sh
+        ./scripts/install.sh
+    - name: Test
+      run: |
+        ./tests/export_output.sh
